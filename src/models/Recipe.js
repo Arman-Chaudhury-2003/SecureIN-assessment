@@ -7,8 +7,7 @@ const nutrientsSchema = new Schema(
   {
     calories: { 
       type: String, 
-      default: null }, // e.g. "389 kcal"
-
+      default: null }, // e.g. 398 kcal etc
     carbohydrateContent: { 
       type: String, 
       default: null },
@@ -78,7 +77,7 @@ const recipeSchema = new Schema(
       type: String, 
       default: null },
 
-    // extras from your JSON (optional but harmless & useful)
+    // extras from your JSON
     url: { 
       type: String, 
       default: null },
@@ -105,12 +104,12 @@ const recipeSchema = new Schema(
   { timestamps: true }
 );
 
-/** Helpful secondary indexes */
+//  secondary
 recipeSchema.index({ rating: -1 });
 recipeSchema.index({ total_time: 1 });
 recipeSchema.index({ title: 1, cuisine: 1 });
 
-/** Clean JSON output */
+// JSON 
 recipeSchema.set("toJSON", {
   virtuals: true,
   versionKey: false,
